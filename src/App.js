@@ -1,23 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
+import MyEditorImportHTML from './MyEditorImportHTML.js';
+import MyEditorWithImages from './MyEditorWithImages.js';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ margin: '2em' }}>
+      <h1>Draft.js</h1>
+      <MyEditorWithImages />
     </div>
   );
 }
