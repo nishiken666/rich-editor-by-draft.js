@@ -6,7 +6,7 @@ function App() {
   return (
     <div style={{ margin: '2em' }}>
       <h1>Draft.js</h1>
-      <MyEditorWithImages />
+      <MyEditorImportHTML />
     </div>
   );
 }

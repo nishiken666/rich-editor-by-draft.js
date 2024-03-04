@@ -11,6 +11,11 @@ function MyEditorImportHTML() {
         return html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
     };
 
+    // CSSを除外する関数
+    const removeStyles = (html) => {
+        return html.replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, '');
+    };
+
     // HTMLファイルが選択されたときの処理
     const handleFileUpload = (e) => {
         const file = e.target.files[0];
@@ -19,7 +24,9 @@ function MyEditorImportHTML() {
         // ファイル読み込みが完了したときの処理
         reader.onload = () => {
             let htmlContent = reader.result; // ファイルの内容を取得
+            htmlContent = removeStyles(htmlContent);
             htmlContent = removeScripts(htmlContent);
+            console.log(htmlContent);
             const newEditorState = EditorState.createWithContent(
                 stateFromHTML(htmlContent) // HTMLをContentStateに変換してEditorStateを作成
             );
